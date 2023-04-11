@@ -1,5 +1,6 @@
 package com.example.projet_pfa.entity;
 
-public class Restaurant {
+public class Zone {
+
 
 }

@@ -1,4 +1,4 @@
 package com.example.projet_pfa.controller;
 
-public class RestaurantController {
+public class CommandeController {
 }

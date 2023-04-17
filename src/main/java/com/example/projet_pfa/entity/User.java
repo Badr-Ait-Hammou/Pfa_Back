@@ -20,6 +20,7 @@ public class User {
     private String prenom;
     private String email;
     private String password;
+    private String telephone;
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(
             name = "user_role",

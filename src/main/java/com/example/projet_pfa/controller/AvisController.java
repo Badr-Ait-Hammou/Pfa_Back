@@ -1,14 +1,13 @@
 package com.example.projet_pfa.controller;
 
-import com.example.projet_pfa.service.CommandeService;
+import com.example.projet_pfa.service.AvisService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/api/commandes")
-public class CommandeController {
-
+@RequestMapping("/api/avis")
+public class AvisController {
     @Autowired
-    private CommandeService commandeService;
+    private AvisService avisService;
 }

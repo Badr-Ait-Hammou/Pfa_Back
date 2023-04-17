@@ -1,36 +1,36 @@
 package com.example.projet_pfa.service;
 
 import com.example.projet_pfa.dao.Dao;
-import com.example.projet_pfa.entity.Commande;
-import com.example.projet_pfa.repository.CommandeRepository;
+import com.example.projet_pfa.entity.Produit;
+import com.example.projet_pfa.repository.ProduitRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
-public class CommandeService implements Dao<Commande> {
+public class ProduitService implements Dao<Produit> {
 
     @Autowired
-    private CommandeRepository commandeRepository;
+    private ProduitRepository produitRepository;
 
     @Override
-    public Commande save(Commande o) {
+    public Produit save(Produit o) {
         return null;
     }
 
     @Override
-    public List<Commande> findAll() {
+    public List<Produit> findAll() {
         return null;
     }
 
     @Override
-    public Commande findById(int id) {
+    public Produit findById(int id) {
         return null;
     }
 
     @Override
-    public void delete(Commande o) {
+    public void delete(Produit o) {
 
     }
 }

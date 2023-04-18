@@ -1,10 +1,16 @@
 package com.example.projet_pfa.entity;
 
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import java.util.List;
 
 
+@Getter
+@Setter
+@NoArgsConstructor
 @Entity
 public class Serie {
 
@@ -14,27 +20,9 @@ public class Serie {
     private String nom;
 
     @OneToMany(mappedBy = "serie", fetch = FetchType.EAGER)
-    private List<Restaurant> restaurant;
+    private List<Restaurant> restaurantList;
 
 
-    public Serie() {
-        super();
-    }
 
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public String getNom() {
-        return nom;
-    }
-
-    public void setNom(String nom) {
-        this.nom = nom;
-    }
 }
 

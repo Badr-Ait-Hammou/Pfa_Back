@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Getter
@@ -28,6 +29,12 @@ public class Restaurant {
     @ManyToOne
     @JoinColumn(name = "zone_id")
     private Zone zone;
+
+    @ManyToMany
+    private List<Specialite> specialiteList;
+    @ManyToOne
+    private Serie serie;
+
 
 
 

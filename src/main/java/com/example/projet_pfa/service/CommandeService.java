@@ -15,13 +15,13 @@ public class CommandeService implements Dao<Commande> {
     private CommandeRepository commandeRepository;
 
     @Override
-    public Commande save(Commande o) {
-        return null;
+    public Commande save(Commande commande) {
+        return commandeRepository.save(commande);
     }
 
     @Override
     public List<Commande> findAll() {
-        return null;
+        return commandeRepository.findAll();
     }
 
     @Override

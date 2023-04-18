@@ -1,6 +1,7 @@
 package com.example.projet_pfa.service;
 
 import com.example.projet_pfa.dao.Dao;
+import com.example.projet_pfa.entity.Serie;
 import com.example.projet_pfa.entity.Specialite;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.rest.webmvc.ResourceNotFoundException;
@@ -32,5 +33,10 @@ public class SpecialiteService implements Dao<Specialite> {
         Specialite specialite=specialiteRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("specialite not found with id " + id));
         specialite.setNom(specialiteinfo.getNom());
         specialiteRepository.save(specialite);
+    }
+
+    public void deleteSpecialite(Integer id){
+        Specialite specialite = specialiteRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("specialite not found with id " + id));
+        specialiteRepository.delete(specialite);
     }
 }

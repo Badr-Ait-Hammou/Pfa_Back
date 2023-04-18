@@ -2,6 +2,7 @@ package com.example.projet_pfa.service;
 
 import com.example.projet_pfa.dao.Dao;
 import com.example.projet_pfa.entity.Serie;
+import com.example.projet_pfa.entity.User;
 import com.example.projet_pfa.repository.SerieRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.rest.webmvc.ResourceNotFoundException;
@@ -33,5 +34,9 @@ public class SerieService implements Dao<Serie> {
         serieRepository.save(serie);
     }
 
+    public void deleteSerie(Integer id){
+        Serie serie = serieRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("serie not found with id " + id));
+        serieRepository.delete(serie);
+    }
 
 }

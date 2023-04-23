@@ -17,7 +17,7 @@ public class SpecialiteService implements Dao<Specialite> {
     private SpecialiteRepository specialiteRepository;
 
     @Override
-    public Specialite save(Specialite o) { return this.specialiteRepository.save(o);}
+    public Specialite save(Specialite specialite) { return this.specialiteRepository.save(specialite);}
 
     @Override
     public Specialite findById(int id) { return this.specialiteRepository.findById(id);}

@@ -17,18 +17,18 @@ public class UserService implements Dao<User> {
     private UserRepository userRepository;
 
     @Override
-    public User save(User o) {
-        return null;
+    public User save(User user) {
+        return userRepository.save(user);
     }
 
     @Override
     public List<User> findAll() {
-        return null;
+        return userRepository.findAll();
     }
 
     @Override
     public User findById(int id) {
-        return null;
+        return userRepository.findById(id);
     }
 
     @Override

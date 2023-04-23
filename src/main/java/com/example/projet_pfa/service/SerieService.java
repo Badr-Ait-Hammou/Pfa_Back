@@ -17,7 +17,7 @@ public class SerieService implements Dao<Serie> {
     private SerieRepository serieRepository;
 
     @Override
-    public Serie save(Serie o) { return this.serieRepository.save(o); }
+    public Serie save(Serie serie) { return this.serieRepository.save(serie); }
 
     @Override
     public List<Serie> findAll() { return this.serieRepository.findAll(); }
@@ -26,7 +26,7 @@ public class SerieService implements Dao<Serie> {
     public Serie findById(int id) { return this.serieRepository.findById(id);}
 
     @Override
-    public void delete(Serie o) { this.serieRepository.delete(o);}
+    public void delete(Serie serie) { this.serieRepository.delete(serie);}
 
     public void update(Integer id, Serie serieinfo) {
         Serie serie=serieRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("serie not found with id " + id));

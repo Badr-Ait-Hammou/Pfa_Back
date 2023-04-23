@@ -35,6 +35,9 @@ public class Restaurant {
     @ManyToOne
     private Serie serie;
 
+    @ManyToOne
+    private User user;
+
 
 
 

@@ -10,23 +10,33 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/restaurants")
 public class RestaurantController {
+
+
     @Autowired
      private RestaurantService restaurantService;
 
      @PostMapping("/save")
-    public Restaurant save(@RequestBody Restaurant o){
-         return restaurantService.save(o);
+    public Restaurant save(@RequestBody Restaurant restaurant){
+         return restaurantService.save(restaurant);
      }
      @GetMapping("/")
     public List<Restaurant> findAll(){
          return restaurantService.findAll();
      }
-     @GetMapping("/{id}")
-    public Restaurant findById(@PathVariable String id){
-         return restaurantService.findById(Integer.parseInt(id));
-     }
-     @DeleteMapping("/delete")
-    public void delete(@RequestBody Restaurant o){
-         restaurantService.delete(o);
-     }
+
+     @GetMapping("/{ville}/{zone}")
+    public List<Restaurant> findPharmaciyByVilleAndZone(@PathVariable String ville,@PathVariable String zone) {
+        return restaurantService.findPharmaciyByVilleAndZone(ville, zone);
+    }
+
+    @DeleteMapping("/")
+    public void deleteCommande(@PathVariable Integer id) {
+        restaurantService.deleteCommande(id);
+    }
+
+    @PutMapping("/{id}")
+    public void update(@PathVariable Integer id,@RequestBody Restaurant restaurantinfo) {
+        restaurantService.update(id, restaurantinfo);
+    }
+
 }

@@ -31,4 +31,7 @@ public class User {
 
     @OneToMany
     private List<Commande> commandeList;
+
+    @OneToMany
+    private List<Restaurant> restaurantList;
 }

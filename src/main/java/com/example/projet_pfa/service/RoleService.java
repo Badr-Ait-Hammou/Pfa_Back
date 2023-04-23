@@ -2,7 +2,6 @@ package com.example.projet_pfa.service;
 
 import com.example.projet_pfa.dao.Dao;
 import com.example.projet_pfa.entity.Role;
-import com.example.projet_pfa.entity.User;
 import com.example.projet_pfa.repository.RoleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.rest.webmvc.ResourceNotFoundException;
@@ -16,18 +15,18 @@ public class RoleService implements Dao<Role> {
     private RoleRepository roleRepository;
 
     @Override
-    public Role save(Role o) {
-        return null;
+    public Role save(Role role) {
+        return roleRepository.save(role);
     }
 
     @Override
     public List<Role> findAll() {
-        return null;
+        return roleRepository.findAll();
     }
 
     @Override
     public Role findById(int id) {
-        return null;
+        return roleRepository.findById(id);
     }
 
     @Override

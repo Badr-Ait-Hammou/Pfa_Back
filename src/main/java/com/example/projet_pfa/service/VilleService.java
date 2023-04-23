@@ -37,4 +37,9 @@ public class VilleService implements Dao<Ville> {
         Ville ville = villeRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("user not found with id " + id));
         villeRepository.delete(ville);
     }
+    public void update(Integer id,Ville villeinfo) {
+        Ville ville=villeRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("ville not found with id " + id));
+        ville.setNom(villeinfo.getNom());
+        villeRepository.save(ville);
+    }
 }

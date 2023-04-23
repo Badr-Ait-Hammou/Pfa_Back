@@ -29,7 +29,7 @@ public class SpecialiteController {
     @PutMapping("/{id}")
     public void update(@PathVariable Integer id,@RequestBody Specialite specialite) {specialiteService.update(id, specialite);}
 
-    @DeleteMapping("/")
+    @DeleteMapping("/{id}")
     public void deleteSpecialite(@PathVariable Integer id) {
         specialiteService.deleteSpecialite(id);
     }

@@ -10,27 +10,35 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/zones")
 public class ZoneController {
+
     @Autowired
     private ZoneService zoneService;
 
-    @PostMapping("/save")
-    public Zone save(@RequestBody Zone o) {
-        return zoneService.save(o);
-    }
-
-    @DeleteMapping("/delete")
-    public void delete(@RequestBody Zone o) {
-        zoneService.delete(o);
-    }
-
-    @GetMapping("/{id}")
-    public Zone findById(@PathVariable String id) {
-        return zoneService.findById(Integer.parseInt(id));
+    @PostMapping("/")
+    public Zone save(@RequestBody Zone zone) {
+        return zoneService.save(zone);
     }
 
     @GetMapping("/")
     public List<Zone> findAll() {
         return zoneService.findAll();
     }
+
+    @GetMapping("/{id}")
+    public Zone findById(@PathVariable int id) {
+        return zoneService.findById(id);
+    }
+
+    @DeleteMapping("/{id}")
+    public void deleteZone(@PathVariable Integer id) {
+        zoneService.deleteZone(id);
+    }
+
+    @PutMapping("/{id}")
+    public void update(@PathVariable Integer id,@RequestBody Zone zoneinfo) {
+        zoneService.update(id, zoneinfo);
+    }
+
+
 }
 

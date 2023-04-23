@@ -15,7 +15,7 @@ public class RoleController {
     @Autowired
     private RoleService roleService;
 
-    @PostMapping("/save")
+    @PostMapping("/")
     public Role save(@RequestBody Role role) {
         return roleService.save(role);
     }
@@ -36,7 +36,7 @@ public class RoleController {
         roleService.update(id, roleinfo);
     }
 
-    @DeleteMapping("/")
+    @DeleteMapping("/{id}")
     public void deleteRole(@PathVariable Integer id) {
         roleService.deleteRole(id);
     }

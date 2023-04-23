@@ -28,7 +28,7 @@ public class SerieController {
     @PutMapping("/{id}")
     public void update(@PathVariable Integer id,@RequestBody Serie serie) {serieService.update(id, serie);}
 
-    @DeleteMapping("/")
+    @DeleteMapping("/{id}")
     public void deleteSerie(@PathVariable Integer id) {
         serieService.deleteSerie(id);
     }

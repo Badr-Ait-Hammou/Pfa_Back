@@ -10,25 +10,35 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/villes")
 public class VilleController {
+
     @Autowired
     private VilleService villeService;
-    @PostMapping("/save")
-    public Ville save(@RequestBody Ville o){
-        return villeService.save(o);
-    }
-    @DeleteMapping("/delete")
-    public void delete(@RequestBody Ville o) {
-        villeService.delete(o);
-    }
 
-    @GetMapping("/{id}")
-    public Ville findById(@PathVariable String id) {
-        return villeService.findById(Integer.parseInt(id));
+    @PostMapping("/")
+    public Ville save(@RequestBody Ville ville) {
+        return villeService.save(ville);
     }
-
     @GetMapping("/")
     public List<Ville> findAll() {
         return villeService.findAll();
     }
+
+    @GetMapping("/{id}")
+    public Ville findById(@PathVariable int id) {
+        return villeService.findById(id);
+    }
+
+    @DeleteMapping("/{id}")
+    public void deleteVille(@PathVariable Integer id) {
+        villeService.deleteVille(id);
+    }
+
+    @PutMapping("/{id}")
+    public void update(@PathVariable Integer id, @RequestBody Ville villeinfo) {
+        villeService.update(id, villeinfo);
+    }
+
+
+
 
 }

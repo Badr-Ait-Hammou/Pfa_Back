@@ -11,9 +11,11 @@ import java.util.List;
 @RequestMapping("/api/avis")
 public class AvisController {
 
+
+
     @Autowired
     private AvisService avisService;
-    @PostMapping("/save")
+    @PostMapping("/")
     public Avis save(@RequestBody Avis avis) {
         return avisService.save(avis);
     }
@@ -23,7 +25,7 @@ public class AvisController {
         return avisService.findAll();
     }
 
-    @GetMapping("{id}")
+    @GetMapping("/{id}")
     public Avis findById(@PathVariable int id) {
         return avisService.findById(id);
     }
@@ -33,5 +35,9 @@ public class AvisController {
         avisService.deleteAvis(id);
     }
 
+    @PutMapping("/{id}")
+    public void update(@PathVariable Integer id,@RequestBody Avis avisinfo) {
+        avisService.update(id, avisinfo);
+    }
 
 }

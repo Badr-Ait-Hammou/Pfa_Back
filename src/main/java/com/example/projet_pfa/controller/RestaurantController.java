@@ -12,6 +12,8 @@ import java.util.List;
 public class RestaurantController {
 
 
+
+
     @Autowired
      private RestaurantService restaurantService;
 
@@ -29,7 +31,7 @@ public class RestaurantController {
         return restaurantService.findPharmaciyByVilleAndZone(ville, zone);
     }
 
-    @DeleteMapping("/")
+    @DeleteMapping("/{id}")
     public void deleteCommande(@PathVariable Integer id) {
         restaurantService.deleteCommande(id);
     }
@@ -37,6 +39,10 @@ public class RestaurantController {
     @PutMapping("/{id}")
     public void update(@PathVariable Integer id,@RequestBody Restaurant restaurantinfo) {
         restaurantService.update(id, restaurantinfo);
+    }
+    @GetMapping("/{id}")
+    public Restaurant findById(@PathVariable int id) {
+        return restaurantService.findById(id);
     }
 
 }

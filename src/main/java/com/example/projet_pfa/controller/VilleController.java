@@ -15,8 +15,8 @@ public class VilleController {
     private VilleService villeService;
 
     @PostMapping("/")
-    public Ville save(@RequestBody Ville ville) {
-        return villeService.save(ville);
+    public void save(@RequestBody Ville ville) {
+         villeService.save(ville);
     }
     @GetMapping("/")
     public List<Ville> findAll() {

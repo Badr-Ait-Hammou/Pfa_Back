@@ -1,8 +1,7 @@
 package com.example.projet_pfa.service;
 
 import com.example.projet_pfa.dao.Dao;
-import com.example.projet_pfa.entity.User;
-import com.example.projet_pfa.entity.Ville;
+
 import com.example.projet_pfa.entity.Zone;
 import com.example.projet_pfa.repository.ZoneRepository;
 import org.springframework.beans.factory.annotation.Autowired;

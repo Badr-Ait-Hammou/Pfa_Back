@@ -16,8 +16,8 @@ public class RoleController {
     private RoleService roleService;
 
     @PostMapping("/")
-    public Role save(@RequestBody Role role) {
-        return roleService.save(role);
+    public void save(@RequestBody Role role) {
+         roleService.save(role);
     }
 
     @GetMapping("/")

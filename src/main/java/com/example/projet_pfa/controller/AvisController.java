@@ -16,8 +16,8 @@ public class AvisController {
     @Autowired
     private AvisService avisService;
     @PostMapping("/")
-    public Avis save(@RequestBody Avis avis) {
-        return avisService.save(avis);
+    public void save(@RequestBody Avis avis) {
+         avisService.save(avis);
     }
 
     @GetMapping("/")

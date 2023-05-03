@@ -25,7 +25,7 @@ public class Restaurant {
     private int langitude;
     private String adresse;
     private double rank;
-    private byte photo;
+    private String photo;
     @ManyToOne
     @JoinColumn(name = "zone_id")
     private Zone zone;

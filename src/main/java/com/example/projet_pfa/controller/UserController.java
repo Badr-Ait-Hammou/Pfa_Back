@@ -16,8 +16,8 @@ public class UserController {
     private UserService userService;
 
     @PostMapping("/")
-    public User save(@RequestBody User user) {
-        return userService.save(user);
+    public void save(@RequestBody User user) {
+         userService.save(user);
     }
 
     @GetMapping("/")

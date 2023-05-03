@@ -28,7 +28,7 @@ public class UserService implements Dao<User> {
 
     @Override
     public User findById(int id) {
-        return userRepository.findById(id);
+        return userRepository.findById(id).get();
     }
 
     @Override

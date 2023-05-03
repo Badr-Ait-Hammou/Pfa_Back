@@ -17,7 +17,7 @@ public class SerieController {
     private SerieService serieService;
 
     @PostMapping("/")
-    public Serie save(@RequestBody Serie serie) { return serieService.save(serie); }
+    public void save(@RequestBody Serie serie) {  serieService.save(serie); }
 
     @GetMapping("/")
     public List<Serie> findAll() { return serieService.findAll();}

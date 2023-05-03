@@ -18,8 +18,8 @@ public class RestaurantController {
      private RestaurantService restaurantService;
 
      @PostMapping("/save")
-    public Restaurant save(@RequestBody Restaurant restaurant){
-         return restaurantService.save(restaurant);
+    public void save(@RequestBody Restaurant restaurant){
+          restaurantService.save(restaurant);
      }
      @GetMapping("/")
     public List<Restaurant> findAll(){

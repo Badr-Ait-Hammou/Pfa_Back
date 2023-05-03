@@ -18,7 +18,7 @@ public class SpecialiteController {
 
 
     @PostMapping("/")
-    public Specialite save(@RequestBody Specialite specialite) { return specialiteService.save(specialite); }
+    public void save(@RequestBody Specialite specialite) {  specialiteService.save(specialite); }
 
     @GetMapping("/")
     public List<Specialite> findAll() { return specialiteService.findAll();}

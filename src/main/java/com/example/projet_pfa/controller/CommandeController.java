@@ -15,8 +15,8 @@ public class CommandeController {
     private CommandeService commandeService;
 
     @PostMapping("/")
-    public Commande save(@RequestBody Commande commande) {
-        return commandeService.save(commande);
+    public void save(@RequestBody Commande commande) {
+         commandeService.save(commande);
     }
 
     @GetMapping("/")

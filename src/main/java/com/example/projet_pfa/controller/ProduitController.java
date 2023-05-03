@@ -14,8 +14,8 @@ public class ProduitController {
     @Autowired
     private ProduitService produitService;
     @PostMapping("/")
-    public Produit save(@RequestBody Produit produit) {
-        return produitService.save(produit);
+    public void save(@RequestBody Produit produit) {
+         produitService.save(produit);
     }
 
     @GetMapping("/")

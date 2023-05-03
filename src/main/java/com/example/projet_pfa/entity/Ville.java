@@ -16,6 +16,7 @@ public class Ville {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String nom;
+
     @OneToMany
     private List<Zone> zoneList;
 

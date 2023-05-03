@@ -16,7 +16,7 @@ public class SerieController {
     @Autowired
     private SerieService serieService;
 
-    @PostMapping("/")
+    @PostMapping("/save")
     public void save(@RequestBody Serie serie) {  serieService.save(serie); }
 
     @GetMapping("/")

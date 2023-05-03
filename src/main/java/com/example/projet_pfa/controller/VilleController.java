@@ -14,7 +14,7 @@ public class VilleController {
     @Autowired
     private VilleService villeService;
 
-    @PostMapping("/")
+    @PostMapping("/save")
     public void save(@RequestBody Ville ville) {
          villeService.save(ville);
     }

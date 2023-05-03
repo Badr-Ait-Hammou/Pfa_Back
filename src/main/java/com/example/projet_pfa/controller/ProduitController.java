@@ -13,7 +13,7 @@ public class ProduitController {
 
     @Autowired
     private ProduitService produitService;
-    @PostMapping("/")
+    @PostMapping("/save")
     public void save(@RequestBody Produit produit) {
          produitService.save(produit);
     }

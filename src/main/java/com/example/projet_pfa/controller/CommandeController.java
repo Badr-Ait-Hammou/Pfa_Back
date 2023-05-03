@@ -14,7 +14,7 @@ public class CommandeController {
     @Autowired
     private CommandeService commandeService;
 
-    @PostMapping("/")
+    @PostMapping("/save")
     public void save(@RequestBody Commande commande) {
          commandeService.save(commande);
     }

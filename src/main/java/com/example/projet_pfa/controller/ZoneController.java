@@ -14,7 +14,7 @@ public class ZoneController {
     @Autowired
     private ZoneService zoneService;
 
-    @PostMapping("/")
+    @PostMapping("/save")
     public void save(@RequestBody Zone zone) {
          zoneService.save(zone);
     }

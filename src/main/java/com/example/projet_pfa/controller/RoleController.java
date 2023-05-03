@@ -15,7 +15,7 @@ public class RoleController {
     @Autowired
     private RoleService roleService;
 
-    @PostMapping("/")
+    @PostMapping("/save")
     public void save(@RequestBody Role role) {
          roleService.save(role);
     }

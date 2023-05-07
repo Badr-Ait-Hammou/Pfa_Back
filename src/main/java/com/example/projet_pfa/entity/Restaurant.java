@@ -1,5 +1,6 @@
 package com.example.projet_pfa.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -18,27 +19,32 @@ public class Restaurant {
     private int id;
     private String nom;
     @Temporal(TemporalType.DATE)
-    private Date heurFermeture;
-    private Date heurOuverture;
-    private Date jourOuverture;
-    private int lattitude;
-    private int langitude;
+    private Date dateFermeture;
+    @Temporal(TemporalType.DATE)
+    private Date dateOuverture;
+    private int latitude;
+    private int longitude;
     private String adresse;
-    private double rank;
+   // private double rank;
     private String photo;
-    @ManyToOne
-    @JoinColumn(name = "zone_id")
-    private Zone zone;
 
-    @ManyToMany
-    private List<Specialite> specialiteList;
     @ManyToOne
     private Serie serie;
 
     @ManyToOne
     private User user;
 
+    @ManyToOne
+    @JoinColumn(name = "zone_id")
+    private Zone zone;
+
+    @ManyToMany
+    @JsonIgnore
+    private List<Specialite> specialiteList;
+
+
     @OneToMany(mappedBy = "restaurant")
+    @JsonIgnore
     private List<Produit> produitList;
 
 

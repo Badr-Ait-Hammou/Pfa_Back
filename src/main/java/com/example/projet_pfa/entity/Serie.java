@@ -1,5 +1,6 @@
 package com.example.projet_pfa.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -20,6 +21,7 @@ public class Serie {
     private String nom;
 
     @OneToMany(mappedBy = "serie", fetch = FetchType.EAGER)
+    @JsonIgnore
     private List<Restaurant> restaurantList;
 
 

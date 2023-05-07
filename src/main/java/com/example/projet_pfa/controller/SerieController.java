@@ -11,6 +11,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/series")
+@CrossOrigin
 public class SerieController {
 
     @Autowired

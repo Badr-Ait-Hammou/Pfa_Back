@@ -48,12 +48,12 @@ public class RestaurantService implements Dao<Restaurant> {
         Restaurant restaurant=restaurantRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("restaurant not found with id " + id));
         restaurant.setNom(restaurantinfo.getNom());
         restaurant.setAdresse(restaurantinfo.getAdresse());
-        restaurant.setHeurFermeture(restaurantinfo.getHeurFermeture());
-        restaurant.setHeurOuverture(restaurantinfo.getHeurOuverture());
-        restaurant.setJourOuverture(restaurantinfo.getJourOuverture());
-        restaurant.setLangitude(restaurantinfo.getLangitude());
-        restaurant.setLattitude(restaurantinfo.getLattitude());
-        restaurant.setRank(restaurantinfo.getRank());
+        restaurant.setDateFermeture(restaurantinfo.getDateFermeture());
+        restaurant.setDateOuverture(restaurantinfo.getDateOuverture());
+       // restaurant.setJourOuverture(restaurantinfo.getJourOuverture());
+        restaurant.setLongitude(restaurantinfo.getLongitude());
+        restaurant.setLatitude(restaurantinfo.getLatitude());
+       // restaurant.setRank(restaurantinfo.getRank());
         restaurant.setPhoto(restaurantinfo.getPhoto());
         restaurant.setSerie(restaurantinfo.getSerie());
         restaurant.setZone(restaurantinfo.getZone());

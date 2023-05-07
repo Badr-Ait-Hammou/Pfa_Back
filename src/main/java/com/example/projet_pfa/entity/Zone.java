@@ -1,5 +1,6 @@
 package com.example.projet_pfa.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -19,6 +20,9 @@ public class Zone {
     @ManyToOne
     @JoinColumn(name = "ville_id")
     private Ville ville;
+
+
     @OneToMany
+    @JsonIgnore
     private List<Restaurant> restaurantList;
 }

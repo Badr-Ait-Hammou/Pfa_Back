@@ -38,6 +38,9 @@ public class Restaurant {
     @ManyToOne
     private User user;
 
+    @OneToMany(mappedBy = "restaurant")
+    private List<Produit> produitList;
+
 
 
 

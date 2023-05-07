@@ -24,4 +24,8 @@ public class Produit {
 
     @ManyToMany(mappedBy = "produitList")
     private List<Commande> commandeList;
+
+    @ManyToOne
+    @JoinColumn(name = "restaurant_id")
+    private Restaurant restaurant;
 }

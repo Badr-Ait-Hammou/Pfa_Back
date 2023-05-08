@@ -18,9 +18,9 @@ public class Restaurant {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String nom;
-    @Temporal(TemporalType.DATE)
+    @Temporal(TemporalType.TIMESTAMP)
     private Date dateFermeture;
-    @Temporal(TemporalType.DATE)
+    @Temporal(TemporalType.TIMESTAMP)
     private Date dateOuverture;
     private int latitude;
     private int longitude;
@@ -38,7 +38,7 @@ public class Restaurant {
     @JoinColumn(name = "zone_id")
     private Zone zone;
 
-    @ManyToMany
+    @ManyToMany(mappedBy = "restaurantList",fetch = FetchType.EAGER)
     @JsonIgnore
     private List<Specialite> specialiteList;
 

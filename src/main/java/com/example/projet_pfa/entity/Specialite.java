@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 @Getter
@@ -24,7 +25,7 @@ public class Specialite {
     @JoinTable(name="restaurant_specialite",
             joinColumns = { @JoinColumn(name="specialite_id") },
             inverseJoinColumns = { @JoinColumn(name="restaurant_id") })
-    private Set<Restaurant> restaurant = new HashSet<Restaurant>();
+    private List<Restaurant> restaurantList;
 
 
 

@@ -57,7 +57,7 @@ public class RestaurantService implements Dao<Restaurant> {
         restaurant.setPhoto(restaurantinfo.getPhoto());
         restaurant.setSerie(restaurantinfo.getSerie());
         restaurant.setZone(restaurantinfo.getZone());
-        restaurant.setUser(restaurantinfo.getUser());
+        //restaurant.setUser(restaurantinfo.getUser());
         restaurantRepository.save(restaurant);
     }
 }

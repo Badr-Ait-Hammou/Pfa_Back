@@ -38,8 +38,8 @@ public class UserService implements Dao<User> {
     public void update(Integer id,User userinfo) {
         User user=userRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("user not found with id " + id));
         user.setEmail(userinfo.getEmail());
-        user.setNom(userinfo.getNom());
-        user.setPrenom(userinfo.getPrenom());
+        user.setFirstName(userinfo.getFirstName());
+        user.setLastName(userinfo.getLastName());
         user.setPassword(userinfo.getPassword());
         userRepository.save(user);
     }

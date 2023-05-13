@@ -10,7 +10,8 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/specialites")
+@RequestMapping("/api/controller/specialites")
+@CrossOrigin
 public class SpecialiteController {
 
     @Autowired

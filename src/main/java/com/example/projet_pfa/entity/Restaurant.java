@@ -26,14 +26,15 @@ public class Restaurant {
     private int longitude;
     private String adresse;
    // private double rank;
-    private String photo;
+   @Column(length =50000)
+   private String photo;
 
     @ManyToOne
     private Serie serie;
 
-    @ManyToOne
+   /* @ManyToOne
     private User user;
-
+*/
     @ManyToOne
     @JoinColumn(name = "zone_id")
     private Zone zone;

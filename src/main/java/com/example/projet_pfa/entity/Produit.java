@@ -17,6 +17,7 @@ public class Produit {
     private int id;
     private String nom;
     private String description;
+    @Column(length =50000)
     private String photo;
     private int stock;
     private Boolean promotion;

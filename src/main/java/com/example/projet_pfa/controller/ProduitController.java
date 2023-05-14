@@ -9,7 +9,13 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/controller/produits")
+@CrossOrigin
 public class ProduitController {
+
+    @GetMapping("/restaurant/{id}")
+    public List<Produit> findProduitsByRestaurant(@PathVariable Integer id) {
+        return produitService.findProduitsByRestaurant(id);
+    }
 
     @Autowired
     private ProduitService produitService;

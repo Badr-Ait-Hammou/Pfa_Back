@@ -33,8 +33,8 @@ public class RestaurantController {
     }
 
     @DeleteMapping("/{id}")
-    public void deleteCommande(@PathVariable Integer id) {
-        restaurantService.deleteCommande(id);
+    public void deleteRestaurant(@PathVariable Integer id) {
+        restaurantService.deleteRestaurant(id);
     }
 
     @PutMapping("/{id}")

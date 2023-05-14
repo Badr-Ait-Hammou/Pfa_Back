@@ -22,6 +22,7 @@ public class Produit {
     private int stock;
     private Boolean promotion;
     private double prix;
+   // private double prixanc;
 
     @ManyToMany(mappedBy = "produitList")
     private List<Commande> commandeList;

@@ -6,6 +6,7 @@ import com.example.projet_pfa.entity.Produit;
 import com.example.projet_pfa.entity.Zone;
 import com.example.projet_pfa.repository.ProduitRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.rest.webmvc.ResourceNotFoundException;
 import org.springframework.stereotype.Service;
 
@@ -13,6 +14,10 @@ import java.util.List;
 
 @Service
 public class ProduitService implements Dao<Produit> {
+
+    public List<Produit> findProduitsByRestaurant(Integer id) {
+        return produitRepository.findProduitsByRestaurant(id);
+    }
 
     @Autowired
     private ProduitRepository produitRepository;
@@ -48,6 +53,7 @@ public class ProduitService implements Dao<Produit> {
         produit.setPromotion(produitinfo.getPromotion());
         produit.setPhoto(produitinfo.getPhoto());
         produit.setPrix(produitinfo.getPrix());
+        produit.setRestaurant(produitinfo.getRestaurant());
         produitRepository.save(produit);
     }
 }

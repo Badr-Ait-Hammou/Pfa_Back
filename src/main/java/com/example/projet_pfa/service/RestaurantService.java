@@ -40,7 +40,7 @@ public class RestaurantService implements Dao<Restaurant> {
     public void delete(Restaurant o) {
 
     }
-    public void deleteCommande(Integer id){
+    public void deleteRestaurant(Integer id){
         Restaurant restaurant = restaurantRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("restaurant not found with id " + id));
         restaurantRepository.delete(restaurant);
     }

@@ -12,6 +12,9 @@ import java.util.List;
 @CrossOrigin
 public class ZoneController {
 
+
+
+
     @Autowired
     private ZoneService zoneService;
 
@@ -25,7 +28,11 @@ public class ZoneController {
         return zoneService.findAll();
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("/{nom}")
+    public List<Zone> findZoneByVille(@PathVariable String nom) {
+        return zoneService.findZoneByVille(nom);
+    }
+    @GetMapping("/zone/{id}")
     public Zone findById(@PathVariable int id) {
         return zoneService.findById(id);
     }

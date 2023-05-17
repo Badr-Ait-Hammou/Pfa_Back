@@ -1,12 +1,16 @@
 package com.example.projet_pfa.auth;
 
+import com.example.projet_pfa.entity.User;
+import com.example.projet_pfa.service.UserService;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.io.IOException;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/auth")
@@ -16,6 +20,13 @@ public class AuthenticationController {
 
     private final AuthenticationService service;
 
+    @GetMapping("/{email}")
+    public Optional<User> findByEmail(@PathVariable String email) {
+        return userService.findByEmail(email);
+    }
+
+    @Autowired
+    private UserService userService;
     @PostMapping("/register")
     public ResponseEntity<AuthenticationResponse> register(@RequestBody RegisterRequest request) {
         return ResponseEntity.ok(service.register(request));

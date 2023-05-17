@@ -34,10 +34,10 @@ public class CommandeController {
         commandeService.deleteCommande(id);
     }
 
-    @PostMapping("/{id}")
+  /*  @PostMapping("/{id}")
     public void update(@PathVariable Integer id,@RequestBody Commande commandeinfo) {
         commandeService.update(id, commandeinfo);
     }
-
+*/
 
 }

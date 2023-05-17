@@ -1,5 +1,6 @@
 package com.example.projet_pfa.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -26,6 +27,11 @@ public class Produit {
 
     @ManyToMany(mappedBy = "produitList")
     private List<Commande> commandeList;
+
+
+    @ManyToMany(mappedBy = "produitList")
+    @JsonIgnore
+    private List<Panier> panierList ;
 
     @ManyToOne
     @JoinColumn(name = "restaurant_id")

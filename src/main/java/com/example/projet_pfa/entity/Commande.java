@@ -36,7 +36,7 @@ public class Commande {
     private List<Produit> produitList;
 
    // @OneToOne(mappedBy = "commande")
-    @OneToOne
+   /* @OneToOne
     private Avis avis;
-
+*/
 }

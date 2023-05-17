@@ -40,7 +40,7 @@ public class CommandeService implements Dao<Commande> {
         Commande commande = commandeRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("commande not found with id " + id));
         commandeRepository.delete(commande);
     }
-    public void update(Integer id, Commande commandeinfo) {
+   /* public void update(Integer id, Commande commandeinfo) {
         Commande commande=commandeRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("commande not found with id " + id));
         commande.setDateCommande(commandeinfo.getDateCommande());
         commande.setPrixCommande(commandeinfo.getPrixCommande());
@@ -51,5 +51,5 @@ public class CommandeService implements Dao<Commande> {
         commande.setTelephone(commandeinfo.getTelephone());
         commande.setAdresseLivraison(commandeinfo.getAdresseLivraison());
         commandeRepository.save(commande);
-    }
+    }*/
 }

@@ -5,13 +5,19 @@ import com.example.projet_pfa.dao.Dao;
 import com.example.projet_pfa.entity.Zone;
 import com.example.projet_pfa.repository.ZoneRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.rest.webmvc.ResourceNotFoundException;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 @Service
 public class ZoneService implements Dao<Zone> {
-   @Autowired
+
+    public List<Zone> findZoneByVille(String nom) {
+        return zoneRepository.findZoneByVille(nom);
+    }
+
+    @Autowired
     private ZoneRepository zoneRepository;
 
     @Override

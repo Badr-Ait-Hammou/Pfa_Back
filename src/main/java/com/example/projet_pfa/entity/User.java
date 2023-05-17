@@ -45,6 +45,11 @@ public class User implements UserDetails {
     @JsonIgnore
     private List<Commande> commandeList;
 
+
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    @JsonIgnore
+    private List<Panier> panierList ;
+
   /*  @OneToMany
     @JsonIgnore
     private List<Restaurant> restaurantList;

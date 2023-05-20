@@ -4,9 +4,7 @@ import com.example.projet_pfa.token.Token;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.Collection;
@@ -28,6 +26,7 @@ public class User implements UserDetails {
     private String firstName;
     private String lastName;
     private String telephone;
+    private String adresse;
 
 
     /*
@@ -41,14 +40,16 @@ public class User implements UserDetails {
 
      */
 
-    @OneToMany
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     @JsonIgnore
-    private List<Commande> commandeList;
+    private List<Orders> ordersList;
+
+
 
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     @JsonIgnore
-    private List<Panier> panierList ;
+    private List<Cart> cartList ;
 
   /*  @OneToMany
     @JsonIgnore

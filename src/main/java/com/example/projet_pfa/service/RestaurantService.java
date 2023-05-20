@@ -1,11 +1,9 @@
 package com.example.projet_pfa.service;
 
 import com.example.projet_pfa.dao.Dao;
-import com.example.projet_pfa.entity.Commande;
 import com.example.projet_pfa.entity.Restaurant;
 import com.example.projet_pfa.repository.RestaurantRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.rest.webmvc.ResourceNotFoundException;
 import org.springframework.stereotype.Service;
 

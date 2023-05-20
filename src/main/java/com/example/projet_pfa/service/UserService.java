@@ -46,6 +46,7 @@ public class UserService implements Dao<User> {
         user.setFirstName(userinfo.getFirstName());
         user.setLastName(userinfo.getLastName());
         user.setPassword(userinfo.getPassword());
+        user.setAdresse(user.getAdresse());
         userRepository.save(user);
     }
 

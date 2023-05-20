@@ -18,22 +18,29 @@ public class Produit {
     private int id;
     private String nom;
     private String description;
-    @Column(length =50000)
+    @Column(length =500000)
     private String photo;
     private int stock;
     private Boolean promotion;
     private double prix;
    // private double prixanc;
 
-    @ManyToMany(mappedBy = "produitList")
-    private List<Commande> commandeList;
 
-
-    @ManyToMany(mappedBy = "produitList")
+    @OneToMany(mappedBy = "produit")
     @JsonIgnore
-    private List<Panier> panierList ;
+    private List<CartItem> cartItems ;
+
+    @OneToMany(mappedBy = "produit")
+    @JsonIgnore
+    private List<OrdersItem> orderItems ;
 
     @ManyToOne
     @JoinColumn(name = "restaurant_id")
     private Restaurant restaurant;
+
+    /*
+    @OneToMany(mappedBy = "produit", cascade = CascadeType.ALL)
+    @JsonIgnore
+    private List<Orders> ordersList;
+*/
 }

@@ -48,6 +48,10 @@ public class Restaurant {
     @JsonIgnore
     private List<Produit> produitList;
 
+    @OneToMany(mappedBy = "restaurant")
+    @JsonIgnore
+    private List<Reservation> reservationList;
+
 
 
 

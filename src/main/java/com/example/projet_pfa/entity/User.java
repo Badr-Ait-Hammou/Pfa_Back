@@ -44,6 +44,10 @@ public class User implements UserDetails {
     @JsonIgnore
     private List<Orders> ordersList;
 
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    @JsonIgnore
+    private List<Reservation> reservationList;
+
 
 
 

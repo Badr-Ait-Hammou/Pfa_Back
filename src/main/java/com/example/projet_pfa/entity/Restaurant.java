@@ -39,10 +39,13 @@ public class Restaurant {
     @JoinColumn(name = "zone_id")
     private Zone zone;
 
-    @ManyToMany(mappedBy = "restaurantList",fetch = FetchType.EAGER)
+    @ManyToOne
+    private Specialite specialite;
+
+  /*  @ManyToMany(mappedBy = "restaurantList",fetch = FetchType.EAGER)
     @JsonIgnore
     private List<Specialite> specialiteList;
-
+*/
 
     @OneToMany(mappedBy = "restaurant")
     @JsonIgnore

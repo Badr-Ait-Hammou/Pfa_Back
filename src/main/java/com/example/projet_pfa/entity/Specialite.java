@@ -1,5 +1,6 @@
 package com.example.projet_pfa.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -21,13 +22,15 @@ public class Specialite {
     private String nom;
 
 
-    @ManyToMany(cascade=CascadeType.PERSIST)
+   /* @ManyToMany(cascade=CascadeType.PERSIST)
     @JoinTable(name="restaurant_specialite",
             joinColumns = { @JoinColumn(name="specialite_id") },
             inverseJoinColumns = { @JoinColumn(name="restaurant_id") })
     private List<Restaurant> restaurantList;
-
-
+*/
+   @OneToMany
+   @JsonIgnore
+   private List<Restaurant> restaurantList;
 
 
 }

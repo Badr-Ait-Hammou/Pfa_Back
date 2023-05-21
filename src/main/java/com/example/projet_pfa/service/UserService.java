@@ -54,4 +54,5 @@ public class UserService implements Dao<User> {
         User user = userRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("user not found with id " + id));
         userRepository.delete(user);
     }
+
 }

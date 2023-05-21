@@ -15,6 +15,8 @@ public class Avis {
     private int id;
     private String description;
 
+
+
   /*  @ManyToOne
     @JoinColumn(name = "commande_id")
     private Commande commande;

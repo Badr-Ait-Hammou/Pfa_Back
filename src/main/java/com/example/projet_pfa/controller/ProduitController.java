@@ -17,6 +17,17 @@ public class ProduitController {
         return produitService.findProduitsByRestaurant(id);
     }
 
+    @GetMapping("/promotion")
+    public List<Produit> findByPromo() {
+        return produitService.findByPromo();
+    }
+
+
+    @GetMapping("/nopromotion")
+    public List<Produit> findByPromotiono() {
+        return produitService.findByPromotiono();
+    }
+
     @Autowired
     private ProduitService produitService;
     @PostMapping("/save")

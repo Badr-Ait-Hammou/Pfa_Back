@@ -19,6 +19,15 @@ public class ProduitService implements Dao<Produit> {
         return produitRepository.findProduitsByRestaurant(id);
     }
 
+
+    public List<Produit> findByPromo() {
+        return produitRepository.findByPromotionEquals(true);
+    }
+
+    public List<Produit> findByPromotiono() {
+        return produitRepository.findByPromotionIsFalse();
+    }
+
     @Autowired
     private ProduitRepository produitRepository;
 

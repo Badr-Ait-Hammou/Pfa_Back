@@ -2,8 +2,7 @@ package com.example.projet_pfa.service;
 
 import com.example.projet_pfa.dao.Dao;
 import com.example.projet_pfa.entity.Orders;
-import com.example.projet_pfa.entity.OrdersItem;
-import com.example.projet_pfa.entity.Produit;
+
 import com.example.projet_pfa.repository.OrdersItemRepository;
 import com.example.projet_pfa.repository.OrdersRepository;
 import com.example.projet_pfa.repository.ProduitRepository;
@@ -21,6 +20,7 @@ public class OrdersService implements Dao<Orders> {
         return ordersRepository.findAllOrders();
     }
 
+
     @Autowired
     private OrdersRepository ordersRepository;
 
@@ -33,6 +33,10 @@ public class OrdersService implements Dao<Orders> {
     @Autowired
     private ProduitRepository produitRepository;
 
+
+    public List<Orders> findByUserId(int id) {
+        return ordersRepository.findByUserId(id);
+    }
 
 
     @Override

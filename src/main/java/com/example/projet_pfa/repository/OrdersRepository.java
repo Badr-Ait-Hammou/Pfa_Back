@@ -12,4 +12,6 @@ public interface OrdersRepository extends JpaRepository<Orders,Integer> {
 
  @Query("SELECT o FROM Orders o JOIN User u ON o.user.id = u.id LEFT JOIN OrdersItem oi ON o.id=oi.orders.id LEFT JOIN Produit p ON oi.produit.id =p.id")
  List<Orders> findAllOrders();
+
+ List<Orders> findByUserId(int id);
 }

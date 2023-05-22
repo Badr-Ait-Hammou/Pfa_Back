@@ -16,6 +16,13 @@ import java.util.List;
 public class OrdersController {
 
 
+    @GetMapping("/userorder/{id}")
+    public List<Orders> findByUserId(@PathVariable int id) {
+        return ordersService.findByUserId(id);
+    }
+
+    @Autowired
+    private OrdersService ordersService;
     @PostMapping("/save")
     public void saveOrderwithOrderItems(@RequestBody Orders orders) {
         ordersService.saveOrderwithOrderItems(orders);
@@ -47,8 +54,7 @@ public class OrdersController {
         return ordersService.findAllOrders();
     }
 
-    @Autowired
-    private OrdersService ordersService;
+
 
     @PostMapping("/")
     public Orders save(@RequestBody Orders orders)  throws Exception{

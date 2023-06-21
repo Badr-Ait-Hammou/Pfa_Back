@@ -1,11 +1,14 @@
 package com.example.projet_pfa.entity;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.util.Date;
 import java.util.List;
 
@@ -18,15 +21,17 @@ public class Restaurant {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String nom;
-    @Temporal(TemporalType.TIMESTAMP)
-    private Date dateFermeture;
-    @Temporal(TemporalType.TIMESTAMP)
-    private Date dateOuverture;
-    private int latitude;
-    private int longitude;
+   // @Temporal(TemporalType.TIMESTAMP)
+   @JsonFormat(pattern="HH:mm")
+    private LocalTime dateFermeture;
+   // @Temporal(TemporalType.TIMESTAMP)
+   @JsonFormat(pattern="HH:mm")
+    private LocalTime  dateOuverture;
+    private String latitude;
+    private String longitude;
     private String adresse;
    // private double rank;
-   @Column(length =50000)
+   @Column(length =500000)
    private String photo;
 
     @ManyToOne

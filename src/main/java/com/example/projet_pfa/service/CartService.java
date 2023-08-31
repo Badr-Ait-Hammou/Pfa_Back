@@ -24,6 +24,10 @@ public class CartService implements Dao<Cart> {
     private CartItemRepository cartItemRepository;
 
 
+    public void deleteById(int id ) {
+        cartRepository.deleteById(id);
+    }
+
     @Autowired
     private ProduitService produitService;
     @Override
@@ -50,6 +54,7 @@ public class CartService implements Dao<Cart> {
     public void delete(Cart o) {
 
     }
+
 
     public Cart getOrCreateCart(User user) {
         Optional<Cart> optionalCart = Optional.ofNullable(cartRepository.findByUser(user));

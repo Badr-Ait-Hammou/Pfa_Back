@@ -16,6 +16,8 @@ import java.util.List;
 public class CartController {
 
 
+
+
     @Autowired
     private CartService cartService;
 
@@ -27,6 +29,10 @@ public class CartController {
         return cartService.save(cart);
     }
 
+    @DeleteMapping("/{id}")
+    public void deleteById(@PathVariable int id) {
+        cartService.deleteById(id);
+    }
 
 
     @GetMapping("/userid/{id}")

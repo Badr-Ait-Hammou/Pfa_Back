@@ -18,7 +18,6 @@ public class Orders {
     private int id;
     //private String orderStatus;
     //private String paymentStatus;
-    @Temporal(TemporalType.TIMESTAMP)
     private Date dateCreated;
     //private double orderAmt;
    // private String billingAdresse;
@@ -30,7 +29,10 @@ public class Orders {
     @ManyToOne
     private User user;
 
- /*   @ManyToOne
+   @ManyToOne
     private Produit produit;
-*/
+    @PrePersist
+    public void prePersist() {
+        dateCreated = new Date();
+    }
 }

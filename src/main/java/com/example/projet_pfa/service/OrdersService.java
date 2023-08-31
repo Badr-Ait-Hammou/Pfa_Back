@@ -27,69 +27,17 @@ public class OrdersService implements Dao<Orders> {
     @Autowired
     private OrdersItemService ordersItemService;
 
-    @Autowired
-    private CartService cartService;
-
-    @Autowired
-    private UserService userService;
 
 
     public List<Orders> findByUserId(int id) {
         return ordersRepository.findByUserId(id);
     }
 
-
     @Override
     public Orders save(Orders orders) throws Exception  {
         return ordersRepository.save(orders);
     }
 
-    public Orders createOrder(User user) throws Exception {
-        Cart cart = cartService.getOrCreateCart(user);
-        List<CartItem> cartItems = cart.getCartItems();
-
-        Orders order = new Orders();
-        order.setUser(user);
-
-        for (CartItem cartItem : cartItems) {
-            OrdersItem orderItem = new OrdersItem();
-            orderItem.setOrders(order);
-            orderItem.setProduit(cartItem.getProduit());
-            orderItem.setQuantity(cartItem.getQuantity());
-
-            order.getOrderItem().add(orderItem);
-        }
-
-        ordersRepository.save(order);
-        cart.getCartItems().clear();
-        cartService.save(cart);
-
-        return order;
-    }
-
-
-
-
-
-
-  /*  public Orders saveOrder(Orders orders) {
-        Orders savedOrder = ordersRepository.save(orders); // Save the order to get the generated order ID
-        for (OrdersItem orderItem : orders.getOrderItem()) {
-            orderItem.setOrders(ordersRepository.findById(savedOrder.getId()));
-            orderItem.setProduit(ordersRepository.findById(savedOrder.getProduit().getId()));
-            orderItem.setProduit(savedOrder.getProduit());
-           // orderItem.setProduit(sa);
-            ordersItemRepository.save(orderItem);
-        }
-        for (OrdersItem orderItem : orders.getOrderItem()) {
-            orderItem.setOrders(savedOrder);
-            orderItem.setProduit(savedOrder.getProduit());
-            ordersItemRepository.save(orderItem);
-        }
-
-        return savedOrder;
-    }
-*/
 
     @Override
     public List<Orders> findAll() {
@@ -104,7 +52,6 @@ public class OrdersService implements Dao<Orders> {
     @Override
     public void delete(Orders o) {
 
-
     }
 
     public void saveOrderwithOrderItems(Orders orders){
@@ -113,16 +60,5 @@ public class OrdersService implements Dao<Orders> {
             ordersItemService.saveOrderItems(orders,orders.getOrderItem());
     }
 
-   /* public void saveOrderwithOrderItems(Orders orders, List<OrdersItem> ordersItems) {
-        orders.setDateCreated(new Date());
 
-        for (OrdersItem item : ordersItems) {
-            Produit product = produitRepository.findById(item.getProduit().getId());
-            item.setOrders(orders);
-            item.setProduit(product);
-        }
-        orders.setOrderItem(ordersItems);
-
-        ordersRepository.save(orders);
-    }*/
 }

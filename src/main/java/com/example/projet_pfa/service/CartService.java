@@ -20,8 +20,6 @@ public class CartService implements Dao<Cart> {
     @Autowired
     private CartRepository cartRepository;
 
-    @Autowired
-    private CartItemRepository cartItemRepository;
 
 
     public void deleteById(int id ) {

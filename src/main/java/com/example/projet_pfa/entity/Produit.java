@@ -34,6 +34,10 @@ public class Produit {
     @JsonIgnore
     private List<OrdersItem> orderItems ;
 
+    @OneToMany(mappedBy = "produit")
+    @JsonIgnore
+    private List<Cart> cartList ;
+
     @ManyToOne
     @JoinColumn(name = "restaurant_id")
     private Restaurant restaurant;

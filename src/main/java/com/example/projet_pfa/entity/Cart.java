@@ -6,6 +6,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -20,7 +21,10 @@ public class Cart {
     private double totalprice;
 
     @OneToMany(mappedBy = "cart",fetch = FetchType.EAGER)
-    private Set<CartItem> cartItems;
+    private List<CartItem> cartItems;
     @ManyToOne
     private User user;
+
+    @ManyToOne
+    private Produit produit;
 }

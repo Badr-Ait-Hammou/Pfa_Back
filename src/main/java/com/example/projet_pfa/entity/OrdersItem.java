@@ -14,6 +14,7 @@ public class OrdersItem {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
+    private int quantity;
     @ManyToOne
     @JsonIgnore
     private Orders orders;

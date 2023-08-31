@@ -1,7 +1,10 @@
 package com.example.projet_pfa.controller;
 
 import com.example.projet_pfa.entity.Cart;
+import com.example.projet_pfa.entity.Produit;
+import com.example.projet_pfa.entity.User;
 import com.example.projet_pfa.service.CartService;
+import com.example.projet_pfa.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -11,13 +14,26 @@ import java.util.List;
 @RequestMapping("/api/controller/carts")
 @CrossOrigin
 public class CartController {
+
+
     @Autowired
     private CartService cartService;
+
+    @Autowired
+    private UserService userService;
 
     @PostMapping("/")
     public Cart save(@RequestBody Cart cart)  throws Exception{
         return cartService.save(cart);
     }
+
+
+
+    @GetMapping("/userid/{id}")
+    public List<Cart> findByUserId(@PathVariable int id) {
+        return cartService.findByUserId(id);
+    }
+
 
     @GetMapping("/")
     public List<Cart> findAll() {
@@ -33,5 +49,17 @@ public class CartController {
         cartService.delete(o);
     }
 
+
+    @PostMapping("/{userId}/add-item")
+    public Cart addItemToCart(@PathVariable int userId, @RequestBody Produit produit) {
+        User user = userService.findById(userId);
+        return cartService.addItemToCart(user, produit.getId(), produit.getStock());
+    }
+
+    @GetMapping("/{userId}")
+    public Cart getCart(@PathVariable int userId) {
+        User user = userService.findById(userId);
+        return cartService.getOrCreateCart(user);
+    }
 
 }

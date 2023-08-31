@@ -14,11 +14,11 @@ public class CartItem {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    //private int quantity;
+    private int quantity;
     private double price;
 
     @ManyToOne
-    @JsonIgnore
+    //@JsonIgnore
     private Cart cart;
     @ManyToOne
     private Produit produit;

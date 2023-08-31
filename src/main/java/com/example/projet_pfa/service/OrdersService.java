@@ -1,7 +1,7 @@
 package com.example.projet_pfa.service;
 
 import com.example.projet_pfa.dao.Dao;
-import com.example.projet_pfa.entity.Orders;
+import com.example.projet_pfa.entity.*;
 
 import com.example.projet_pfa.repository.OrdersItemRepository;
 import com.example.projet_pfa.repository.OrdersRepository;
@@ -28,10 +28,10 @@ public class OrdersService implements Dao<Orders> {
     private OrdersItemService ordersItemService;
 
     @Autowired
-    private OrdersItemRepository ordersItemRepository;
+    private CartService cartService;
 
     @Autowired
-    private ProduitRepository produitRepository;
+    private UserService userService;
 
 
     public List<Orders> findByUserId(int id) {
@@ -43,6 +43,34 @@ public class OrdersService implements Dao<Orders> {
     public Orders save(Orders orders) throws Exception  {
         return ordersRepository.save(orders);
     }
+
+    public Orders createOrder(User user) throws Exception {
+        Cart cart = cartService.getOrCreateCart(user);
+        List<CartItem> cartItems = cart.getCartItems();
+
+        Orders order = new Orders();
+        order.setUser(user);
+
+        for (CartItem cartItem : cartItems) {
+            OrdersItem orderItem = new OrdersItem();
+            orderItem.setOrders(order);
+            orderItem.setProduit(cartItem.getProduit());
+            orderItem.setQuantity(cartItem.getQuantity());
+
+            order.getOrderItem().add(orderItem);
+        }
+
+        ordersRepository.save(order);
+        cart.getCartItems().clear();
+        cartService.save(cart);
+
+        return order;
+    }
+
+
+
+
+
 
   /*  public Orders saveOrder(Orders orders) {
         Orders savedOrder = ordersRepository.save(orders); // Save the order to get the generated order ID

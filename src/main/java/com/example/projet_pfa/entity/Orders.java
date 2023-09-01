@@ -16,11 +16,8 @@ public class Orders {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    //private String orderStatus;
-    //private String paymentStatus;
+
     private Date dateCreated;
-    //private double orderAmt;
-   // private String billingAdresse;
     private double totalPrice;
     private int productQuantity;
 

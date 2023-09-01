@@ -28,6 +28,11 @@ public class ProduitController {
         return produitService.findByPromotiono();
     }
 
+    @PutMapping("/stock/{id}")
+    public void updateStock(@PathVariable Integer id,@RequestBody Produit produitinfo) {
+        produitService.updateStock(id, produitinfo);
+    }
+
     @Autowired
     private ProduitService produitService;
     @PostMapping("/save")

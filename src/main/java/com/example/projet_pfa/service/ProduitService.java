@@ -65,4 +65,12 @@ public class ProduitService implements Dao<Produit> {
         produit.setRestaurant(produitinfo.getRestaurant());
         produitRepository.save(produit);
     }
+
+    public void updateStock(Integer id, Produit produitinfo) {
+        Produit produit=produitRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("produit not found with id " + id));
+        produit.setStock(produitinfo.getStock());
+        produitRepository.save(produit);
+    }
+
+
 }

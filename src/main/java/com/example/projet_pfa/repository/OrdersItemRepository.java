@@ -10,9 +10,7 @@ import java.util.Optional;
 
 public interface OrdersItemRepository extends JpaRepository<OrdersItem,Integer> {
 
-    //List<OrdersItem> findByOrdersId(int id);
     List<OrdersItem> findByOrders(Orders orders);
 
-    Optional<OrdersItem> findByOrdersIdAndProduitId(Integer idcart, Integer idproduit);
 
 }

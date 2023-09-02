@@ -18,6 +18,11 @@ public class OrdersController {
         return ordersService.findByUserId(id);
     }
 
+    @DeleteMapping("/{id}")
+    public void deleteById(@PathVariable int id) {
+        ordersService.deleteById(id);
+    }
+
     @Autowired
     private OrdersService ordersService;
     @PostMapping("/save")

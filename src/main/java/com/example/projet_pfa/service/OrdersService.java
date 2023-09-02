@@ -22,7 +22,6 @@ public class OrdersService implements Dao<Orders> {
 
 
 
-
     @Autowired
     private OrdersRepository ordersRepository;
 
@@ -62,5 +61,9 @@ public class OrdersService implements Dao<Orders> {
             ordersItemService.saveOrderItems(orders,orders.getOrderItem());
     }
 
+
+    public void deleteById(int id) {
+        ordersRepository.deleteById(id);
+    }
 
 }

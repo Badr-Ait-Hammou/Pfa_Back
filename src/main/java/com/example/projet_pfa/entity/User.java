@@ -22,11 +22,18 @@ public class User implements UserDetails {
     private Integer id;
     private String username;
     private String password;
+
+    @Column(unique=true)
     private String email;
     private String firstName;
     private String lastName;
     private String telephone;
     private String adresse;
+    private String area;
+    private String postcode;
+    @Lob
+    @Column(columnDefinition = "LONGTEXT")
+    private String photo;
 
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)

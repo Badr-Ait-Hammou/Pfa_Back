@@ -107,7 +107,7 @@ public class AuthenticationService {
                 .expired(false)
                 .revoked(false)
                 .build();
-       // tokenRepository.save(token);
+        tokenRepository.save(token);
     }
 
     private void revokeAllUserTokens(User user) {

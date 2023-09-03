@@ -44,11 +44,11 @@ public class UserService implements Dao<User> {
         User user=userRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("user not found with id " + id));
         user.setFirstName(userinfo.getFirstName());
         user.setLastName(userinfo.getLastName());
-        user.setAdresse(user.getAdresse());
-        user.setArea(user.getArea());
-        user.setPhoto(user.getPhoto());
-        user.setTelephone(user.getTelephone());
-        user.setPostcode(user.getPostcode());
+        user.setAdresse(userinfo.getAdresse());
+        user.setArea(userinfo.getArea());
+        user.setPhoto(userinfo.getPhoto());
+        user.setTelephone(userinfo.getTelephone());
+        user.setPostcode(userinfo.getPostcode());
         userRepository.save(user);
     }
 

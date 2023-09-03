@@ -20,6 +20,7 @@ public class Orders {
     private Date dateCreated;
     private double totalPrice;
     private int productQuantity;
+    private String status;
 
     @OneToMany(mappedBy = "orders", fetch = FetchType.EAGER)
     private List<OrdersItem> orderItem;

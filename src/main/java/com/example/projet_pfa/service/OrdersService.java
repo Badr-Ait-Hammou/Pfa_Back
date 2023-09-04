@@ -8,6 +8,7 @@ import com.example.projet_pfa.repository.OrdersRepository;
 import com.example.projet_pfa.repository.ProduitRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.rest.webmvc.ResourceNotFoundException;
 import org.springframework.stereotype.Service;
 
 import java.util.Date;
@@ -65,5 +66,13 @@ public class OrdersService implements Dao<Orders> {
     public void deleteById(int id) {
         ordersRepository.deleteById(id);
     }
+
+
+    public void updateSatus(Integer id, Orders ordersinfo) {
+        Orders orders=ordersRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("orders not found with id " + id));
+        orders.setStatus(ordersinfo.getStatus());
+        ordersRepository.save(orders);
+    }
+
 
 }

@@ -23,6 +23,11 @@ public class OrdersController {
         ordersService.deleteById(id);
     }
 
+    @PutMapping("/status/{id}")
+    public void updateSatus(@PathVariable Integer id,@RequestBody Orders ordersinfo) {
+        ordersService.updateSatus(id, ordersinfo);
+    }
+
     @Autowired
     private OrdersService ordersService;
     @PostMapping("/save")

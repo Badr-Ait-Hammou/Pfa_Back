@@ -47,10 +47,6 @@ public class Restaurant {
     @ManyToOne
     private Specialite specialite;
 
-  /*  @ManyToMany(mappedBy = "restaurantList",fetch = FetchType.EAGER)
-    @JsonIgnore
-    private List<Specialite> specialiteList;
-*/
 
     @OneToMany(mappedBy = "restaurant")
     @JsonIgnore

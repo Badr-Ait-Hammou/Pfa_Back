@@ -4,6 +4,7 @@ import com.example.projet_pfa.dao.Dao;
 import com.example.projet_pfa.entity.Restaurant;
 import com.example.projet_pfa.repository.RestaurantRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.rest.webmvc.ResourceNotFoundException;
 import org.springframework.stereotype.Service;
 
@@ -15,6 +16,10 @@ public class RestaurantService implements Dao<Restaurant> {
 
     public List<Restaurant> findPharmaciyByVilleAndZone(String ville, String zone) {
         return restaurantRepository.findPharmaciyByVilleAndZone(ville, zone);
+    }
+
+    public List<Restaurant> findRestaurantByVilleZoneAndSpecialite(String ville, String zone, String specialite) {
+        return restaurantRepository.findRestaurantByVilleZoneAndSpecialite(ville, zone, specialite);
     }
 
     @Autowired

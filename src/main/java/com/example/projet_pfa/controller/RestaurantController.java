@@ -13,7 +13,10 @@ import java.util.List;
 public class RestaurantController {
 
 
-
+    @GetMapping("/{ville}/{zone}/{specialite}")
+    public List<Restaurant> findRestaurantByVilleZoneAndSpecialite(@PathVariable String ville,@PathVariable String zone,@PathVariable String specialite) {
+        return restaurantService.findRestaurantByVilleZoneAndSpecialite(ville, zone, specialite);
+    }
 
     @Autowired
      private RestaurantService restaurantService;

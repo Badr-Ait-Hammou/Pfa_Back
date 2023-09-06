@@ -8,6 +8,7 @@ import com.example.projet_pfa.entity.User;
 import com.example.projet_pfa.repository.CartItemRepository;
 import com.example.projet_pfa.repository.CartRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -16,6 +17,10 @@ import java.util.Optional;
 @Service
 public class CartService implements Dao<Cart> {
 
+
+    public Cart findByUserIdAndProduitId(int userId, int produitId) {
+        return cartRepository.findByUserIdAndProduitId(userId, produitId);
+    }
 
     @Autowired
     private CartRepository cartRepository;

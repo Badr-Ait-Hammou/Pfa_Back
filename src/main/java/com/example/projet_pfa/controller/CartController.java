@@ -17,7 +17,6 @@ public class CartController {
 
 
 
-
     @Autowired
     private CartService cartService;
 
@@ -28,6 +27,11 @@ public class CartController {
     public Cart save(@RequestBody Cart cart)  throws Exception{
         return cartService.save(cart);
     }
+    @GetMapping("/incart/{userId}/{produitId}")
+    public Cart findByUserIdAndProduitId(@PathVariable int userId,@PathVariable int produitId) {
+        return cartService.findByUserIdAndProduitId(userId, produitId);
+    }
+
 
     @DeleteMapping("/{id}")
     public void deleteById(@PathVariable int id) {

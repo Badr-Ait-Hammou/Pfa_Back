@@ -43,8 +43,8 @@ public class AvisService implements Dao<Avis> {
 
     public void update(Integer id, Avis avisinfo) {
        Avis avis=avisRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("avis not found with id " + id));
-       avis.setDescription(avisinfo.getDescription());
-      // avis.setCommande(avisinfo.getCommande());
+       avis.setNote(avisinfo.getNote());
+       avis.setRating(avisinfo.getRating());
        avisRepository.save(avis);
     }
 }

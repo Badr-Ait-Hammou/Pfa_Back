@@ -13,13 +13,12 @@ public class Avis {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    private String description;
+    private String note;
+    private int rating;
+    @ManyToOne
+    private User user;
 
+    @ManyToOne
+    private Produit produit;
 
-
-  /*  @ManyToOne
-    @JoinColumn(name = "commande_id")
-    private Commande commande;
-
-   */
 }

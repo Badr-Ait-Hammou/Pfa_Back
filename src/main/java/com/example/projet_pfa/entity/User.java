@@ -35,6 +35,10 @@ public class User implements UserDetails {
     @Column(columnDefinition = "LONGTEXT")
     private String photo;
 
+    @OneToMany
+    @JsonIgnore
+    private List<Avis> avisList;
+
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     @JsonIgnore

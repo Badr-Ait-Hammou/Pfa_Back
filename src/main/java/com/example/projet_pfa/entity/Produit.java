@@ -23,8 +23,10 @@ public class Produit {
     private int stock;
     private Boolean promotion;
     private double prix;
-   // private double prixanc;
 
+    @OneToMany(mappedBy = "produit")
+    @JsonIgnore
+    private List<Avis> avisList;
 
     @OneToMany(mappedBy = "produit")
     @JsonIgnore
@@ -42,9 +44,4 @@ public class Produit {
     @JoinColumn(name = "restaurant_id")
     private Restaurant restaurant;
 
-    /*
-    @OneToMany(mappedBy = "produit", cascade = CascadeType.ALL)
-    @JsonIgnore
-    private List<Orders> ordersList;
-*/
 }

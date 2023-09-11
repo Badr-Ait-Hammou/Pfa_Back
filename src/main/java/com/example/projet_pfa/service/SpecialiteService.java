@@ -32,6 +32,7 @@ public class SpecialiteService implements Dao<Specialite> {
     public void update(Integer id, Specialite specialiteinfo) {
         Specialite specialite=specialiteRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("specialite not found with id " + id));
         specialite.setNom(specialiteinfo.getNom());
+        specialite.setPhoto(specialiteinfo.getPhoto());
         specialiteRepository.save(specialite);
     }
 

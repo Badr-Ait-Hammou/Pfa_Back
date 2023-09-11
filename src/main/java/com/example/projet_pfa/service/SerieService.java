@@ -31,6 +31,7 @@ public class SerieService implements Dao<Serie> {
     public void update(Integer id, Serie serieinfo) {
         Serie serie=serieRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("serie not found with id " + id));
         serie.setNom(serieinfo.getNom());
+        serie.setPhoto(serieinfo.getPhoto());
         serieRepository.save(serie);
     }
 

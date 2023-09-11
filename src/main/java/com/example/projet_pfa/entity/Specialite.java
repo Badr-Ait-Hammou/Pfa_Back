@@ -20,14 +20,10 @@ public class Specialite {
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     private int id;
     private String nom;
+    @Lob
+    @Column(columnDefinition = "LONGTEXT")
+    private String photo;
 
-
-   /* @ManyToMany(cascade=CascadeType.PERSIST)
-    @JoinTable(name="restaurant_specialite",
-            joinColumns = { @JoinColumn(name="specialite_id") },
-            inverseJoinColumns = { @JoinColumn(name="restaurant_id") })
-    private List<Restaurant> restaurantList;
-*/
    @OneToMany
    @JsonIgnore
    private List<Restaurant> restaurantList;

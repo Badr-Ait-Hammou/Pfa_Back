@@ -19,6 +19,9 @@ public class Serie {
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     private int id;
     private String nom;
+    @Lob
+    @Column(columnDefinition = "LONGTEXT")
+    private String photo;
 
     @OneToMany(mappedBy = "serie", fetch = FetchType.EAGER)
     @JsonIgnore

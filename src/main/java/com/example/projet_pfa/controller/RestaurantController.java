@@ -18,6 +18,8 @@ public class RestaurantController {
         return restaurantService.findRestaurantByVilleZoneAndSpecialite(ville, zone, specialite);
     }
 
+
+
     @Autowired
      private RestaurantService restaurantService;
 
@@ -49,4 +51,8 @@ public class RestaurantController {
         return restaurantService.findById(id);
     }
 
+    @GetMapping("/specialite/{id}")
+    public List<Restaurant> findBySpecialiteId(@PathVariable int id) {
+        return restaurantService.findBySpecialiteId(id);
+    }
 }

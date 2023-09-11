@@ -22,6 +22,10 @@ public class RestaurantService implements Dao<Restaurant> {
         return restaurantRepository.findRestaurantByVilleZoneAndSpecialite(ville, zone, specialite);
     }
 
+    public List<Restaurant> findBySpecialiteId(int id) {
+        return restaurantRepository.findBySpecialiteId(id);
+    }
+
     @Autowired
     private RestaurantRepository restaurantRepository;
     @Override

@@ -16,5 +16,6 @@ public interface RestaurantRepository extends JpaRepository<Restaurant,Integer> 
  @Query("SELECT r FROM Restaurant r JOIN r.zone z JOIN z.ville v WHERE v.nom = ?1 AND z.nom = ?2 AND r.specialite.nom = ?3")
  List<Restaurant> findRestaurantByVilleZoneAndSpecialite(String ville, String zone, String specialite);
 
+ List<Restaurant> findBySpecialiteId(int id);
 
 }

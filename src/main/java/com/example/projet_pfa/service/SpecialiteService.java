@@ -13,6 +13,8 @@ import java.util.List;
 @Service
 public class SpecialiteService implements Dao<Specialite> {
 
+
+
     @Autowired
     private SpecialiteRepository specialiteRepository;
 
@@ -36,8 +38,11 @@ public class SpecialiteService implements Dao<Specialite> {
         specialiteRepository.save(specialite);
     }
 
-    public void deleteSpecialite(Integer id){
-        Specialite specialite = specialiteRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("specialite not found with id " + id));
-        specialiteRepository.delete(specialite);
+//    public void deleteSpecialite(Integer id){
+//        Specialite specialite = specialiteRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("specialite not found with id " + id));
+//        specialiteRepository.delete(specialite);
+//    }
+    public void deleteById(Integer id) {
+        specialiteRepository.deleteById(id);
     }
 }

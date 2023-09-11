@@ -14,6 +14,8 @@ import java.util.List;
 @CrossOrigin
 public class SpecialiteController {
 
+
+
     @Autowired
     private SpecialiteService specialiteService;
 
@@ -31,10 +33,9 @@ public class SpecialiteController {
     public void update(@PathVariable Integer id,@RequestBody Specialite specialite) {specialiteService.update(id, specialite);}
 
     @DeleteMapping("/{id}")
-    public void deleteSpecialite(@PathVariable Integer id) {
-        specialiteService.deleteSpecialite(id);
+    public void deleteById(@PathVariable Integer id) {
+        specialiteService.deleteById(id);
     }
-
 
 
 

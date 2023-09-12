@@ -24,6 +24,7 @@ public class Orders {
     private String status;
 
     @OneToMany(mappedBy = "orders", fetch = FetchType.EAGER)
+    @JsonIgnore
     private List<OrdersItem> orderItem;
 
     @OneToMany(mappedBy = "orders", fetch = FetchType.EAGER)

@@ -1,6 +1,7 @@
 package com.example.projet_pfa.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -24,8 +25,7 @@ public class Produit {
     private Boolean promotion;
     private double prix;
 
-    @OneToMany(mappedBy = "produit")
-    @JsonIgnore
+    @OneToMany(mappedBy = "produit", fetch = FetchType.LAZY)
     private List<Avis> avisList;
 
     @OneToMany(mappedBy = "produit")
@@ -40,8 +40,8 @@ public class Produit {
     @JsonIgnore
     private List<Cart> cartList ;
 
-    @ManyToOne
-    @JoinColumn(name = "restaurant_id")
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JsonIgnoreProperties({ "produitList"})
     private Restaurant restaurant;
 
 }

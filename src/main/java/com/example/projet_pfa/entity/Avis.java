@@ -20,5 +20,7 @@ public class Avis {
 
     @ManyToOne
     private Produit produit;
+    @ManyToOne
+    private Orders orders;
 
 }

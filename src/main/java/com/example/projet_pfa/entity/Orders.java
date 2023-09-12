@@ -1,6 +1,7 @@
 package com.example.projet_pfa.entity;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -24,6 +25,10 @@ public class Orders {
 
     @OneToMany(mappedBy = "orders", fetch = FetchType.EAGER)
     private List<OrdersItem> orderItem;
+
+    @OneToMany(mappedBy = "orders", fetch = FetchType.EAGER)
+    @JsonIgnore
+    private List<Avis> avisList;
     @ManyToOne
     private User user;
 

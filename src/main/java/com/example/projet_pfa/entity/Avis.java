@@ -6,6 +6,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.Date;
+
 @Entity
 @Getter
 @Setter
@@ -16,6 +18,7 @@ public class Avis {
     private int id;
     private String note;
     private int rating;
+    private Date commentDate;
     @ManyToOne
     private User user;
 
@@ -25,5 +28,12 @@ public class Avis {
     @ManyToOne(fetch = FetchType.EAGER)
     @JsonIgnoreProperties({ "avisList", "user","produit"})
     private Orders orders;
+
+    @PrePersist
+    public void prePersist() {
+        commentDate = new Date();
+    }
+
+
 
 }

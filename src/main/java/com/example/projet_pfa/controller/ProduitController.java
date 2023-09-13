@@ -33,6 +33,7 @@ public class ProduitController {
         produitService.updateStock(id, produitinfo);
     }
 
+
     @Autowired
     private ProduitService produitService;
     @PostMapping("/save")
@@ -59,6 +60,12 @@ public class ProduitController {
     public void update(@PathVariable Integer id,@RequestBody Produit produitinfo) {
         produitService.update(id, produitinfo);
     }
+
+    @GetMapping("/restaurant/speciality/{id}")
+    public List<Produit> findProduitByRestaurantSpecialiteId(@PathVariable Integer id) {
+        return produitService.findProduitByRestaurantSpecialiteId(id);
+    }
+
 
 
 }

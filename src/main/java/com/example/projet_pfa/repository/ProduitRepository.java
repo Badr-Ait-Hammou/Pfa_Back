@@ -12,6 +12,7 @@ public interface ProduitRepository extends JpaRepository<Produit,Integer> {
     @Query("select p from Produit p where p.restaurant.id=:id order by p.id")
     List<Produit> findProduitsByRestaurant(@Param("id") Integer id);
 
+    List<Produit> findProduitByRestaurantSpecialiteId(Integer id);
 
     List<Produit> findByPromotionEquals(boolean id);
     List<Produit> findByPromotionIsFalse();

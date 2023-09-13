@@ -28,6 +28,7 @@ public class ProduitService implements Dao<Produit> {
         return produitRepository.findByPromotionIsFalse();
     }
 
+
     @Autowired
     private ProduitRepository produitRepository;
 
@@ -71,6 +72,13 @@ public class ProduitService implements Dao<Produit> {
         produit.setStock(produitinfo.getStock());
         produitRepository.save(produit);
     }
+
+
+    public List<Produit> findProduitByRestaurantSpecialiteId(Integer id) {
+        return produitRepository.findProduitByRestaurantSpecialiteId(id);
+    }
+
+
 
 
 }

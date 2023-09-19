@@ -40,4 +40,9 @@ public class AvisController {
         avisService.update(id, avisinfo);
     }
 
+    @GetMapping("/user/{id}")
+    public List<Avis> findByUserId(@PathVariable int id) {
+        return avisService.findByUserId(id);
+    }
+
 }

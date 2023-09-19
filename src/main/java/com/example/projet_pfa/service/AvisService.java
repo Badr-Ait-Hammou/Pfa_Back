@@ -14,6 +14,8 @@ import java.util.List;
 @Service
 public class AvisService implements Dao<Avis> {
 
+
+
     @Autowired
     private AvisRepository avisRepository;
 
@@ -46,5 +48,9 @@ public class AvisService implements Dao<Avis> {
        avis.setNote(avisinfo.getNote());
        avis.setRating(avisinfo.getRating());
        avisRepository.save(avis);
+    }
+
+    public List<Avis> findByUserId(int id) {
+        return avisRepository.findByUserId(id);
     }
 }

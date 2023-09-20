@@ -1,7 +1,6 @@
 package com.example.projet_pfa.controller;
 
 import com.example.projet_pfa.entity.Cart;
-import com.example.projet_pfa.entity.Produit;
 import com.example.projet_pfa.entity.User;
 import com.example.projet_pfa.service.CartService;
 import com.example.projet_pfa.service.UserService;

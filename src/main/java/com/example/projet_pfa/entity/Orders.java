@@ -23,8 +23,9 @@ public class Orders {
     private int productQuantity;
     private String status;
 
+  
 
-    @OneToMany(mappedBy = "orders", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "orders", fetch = FetchType.EAGER)
     @JsonIgnore
     private List<Avis> avisList;
     @ManyToOne

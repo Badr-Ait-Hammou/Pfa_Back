@@ -14,6 +14,10 @@ import java.util.List;
 public class OrdersController {
 
 
+    @GetMapping("/userrole/{userId}")
+    public List<Orders> findOrdersByUserIdAndUserRole(@PathVariable int userId) {
+        return ordersService.findOrdersByUserIdAndUserRole(userId);
+    }
 
     @Autowired
     private OrdersService ordersService;
@@ -32,10 +36,6 @@ public class OrdersController {
     public void updateSatus(@PathVariable Integer id,@RequestBody Orders ordersinfo) {
         ordersService.updateSatus(id, ordersinfo);
     }
-
-
-
-
 
 
     @PostMapping("/")

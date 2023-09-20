@@ -13,7 +13,13 @@ import static com.example.projet_pfa.entity.Permission.*;
 
 @RequiredArgsConstructor
 public enum Role {
-    USER(Collections.emptySet()),
+    USER(  Set.of(
+            USER_READ,
+            USER_UPDATE,
+            USER_DELETE,
+            USER_CREATE
+    )
+    ),
     ADMIN(
             Set.of(
                     ADMIN_READ,

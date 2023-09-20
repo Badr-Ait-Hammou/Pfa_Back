@@ -1,6 +1,7 @@
 package com.example.projet_pfa.repository;
 
 import com.example.projet_pfa.entity.Orders;
+import com.example.projet_pfa.entity.Role;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
@@ -25,4 +26,7 @@ public interface OrdersRepository extends JpaRepository<Orders,Integer> {
 
 
  List<Orders> findByUserId(int id);
+
+ @Query("SELECT o FROM Orders o INNER JOIN o.user u WHERE u.id = :userId AND u.role = 'USER'")
+ List<Orders> findOrdersByUserIdAndUserRole(int userId);
 }

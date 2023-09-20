@@ -9,6 +9,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/controller/avis")
+@CrossOrigin
 public class AvisController {
 
 

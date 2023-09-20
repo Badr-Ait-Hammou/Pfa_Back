@@ -25,13 +25,13 @@ public class Orders {
 
   
 
-    @OneToMany(mappedBy = "orders", fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "orders",fetch = FetchType.LAZY)
     @JsonIgnore
     private List<Avis> avisList;
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
     private User user;
 
-   @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
     private Produit produit;
     @PrePersist
     public void prePersist() {

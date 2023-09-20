@@ -5,6 +5,7 @@ import com.example.projet_pfa.service.OrdersService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 @RestController
@@ -12,6 +13,10 @@ import java.util.List;
 @CrossOrigin
 public class OrdersController {
 
+
+
+    @Autowired
+    private OrdersService ordersService;
 
     @GetMapping("/userorder/{id}")
     public List<Orders> findByUserId(@PathVariable int id) {
@@ -28,17 +33,10 @@ public class OrdersController {
         ordersService.updateSatus(id, ordersinfo);
     }
 
-    @Autowired
-    private OrdersService ordersService;
-    @PostMapping("/save")
-    public void saveOrderwithOrderItems(@RequestBody Orders orders) {
-        ordersService.saveOrderwithOrderItems(orders);
-    }
 
-    @GetMapping("/all")
-    public List<Orders> findAllOrders() {
-        return ordersService.findAllOrders();
-    }
+
+
+
 
     @PostMapping("/")
     public Orders save(@RequestBody Orders orders)  throws Exception{
@@ -59,5 +57,24 @@ public class OrdersController {
         ordersService.delete(o);
     }
 
+
+    @GetMapping("/shippedcount")
+    public Long countPendingOrders() {
+        return ordersService.countPendingOrders();
+    }
+    @GetMapping("/deliveredcount")
+    public Long countDeliveredOrders() {
+        return ordersService.countDeliveredOrders();
+    }
+
+    @GetMapping("/deliveredtot")
+    public BigDecimal sumTotalPriceOfDeliveredOrders() {
+        return ordersService.sumTotalPriceOfDeliveredOrders();
+    }
+
+    @GetMapping("/shippedtot")
+    public BigDecimal sumTotalPriceOfPendingOrders() {
+        return ordersService.sumTotalPriceOfPendingOrders();
+    }
 
 }

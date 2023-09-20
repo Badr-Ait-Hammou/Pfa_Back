@@ -45,4 +45,9 @@ public class AvisController {
         return avisService.findByUserId(id);
     }
 
+    @GetMapping("/useravis/{userId}")
+    public List<Object[]> findAllByUserId(@PathVariable int userId) {
+        return avisService.findAllByUserId(userId);
+    }
+
 }

@@ -2,13 +2,9 @@ package com.example.projet_pfa.service;
 
 import com.example.projet_pfa.dao.Dao;
 import com.example.projet_pfa.entity.Cart;
-import com.example.projet_pfa.entity.CartItem;
-import com.example.projet_pfa.entity.Produit;
 import com.example.projet_pfa.entity.User;
-import com.example.projet_pfa.repository.CartItemRepository;
 import com.example.projet_pfa.repository.CartRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -71,18 +67,5 @@ public class CartService implements Dao<Cart> {
     }
 
 
-    public Cart addItemToCart(User user, int productId, int quantity) {
-        Cart cart = getOrCreateCart(user);
-        Produit product = produitService.findById(productId);
-
-        CartItem cartItem = new CartItem();
-        cartItem.setCart(cart);
-        cartItem.setProduit(product);
-        cartItem.setQuantity(quantity);
-
-        cart.getCartItems().add(cartItem);
-
-        return cartRepository.save(cart);
-    }
 
 }

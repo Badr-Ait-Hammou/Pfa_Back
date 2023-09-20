@@ -1,5 +1,6 @@
 package com.example.projet_pfa.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.Getter;
@@ -19,11 +20,12 @@ public class Avis {
     private String note;
     private int rating;
     private Date commentDate;
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JsonIgnoreProperties({ "avisList", "ordersList","reservationList","cartList"})
     private User user;
 
     @ManyToOne(fetch = FetchType.EAGER)
-    @JsonIgnoreProperties({ "avisList", "restaurant"})
+    @JsonIgnoreProperties({ "avisList", "restaurant","cartList","photo"})
     private Produit produit;
     @ManyToOne(fetch = FetchType.EAGER)
     @JsonIgnoreProperties({ "avisList", "user","produit"})

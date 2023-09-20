@@ -60,12 +60,6 @@ public class CartController {
     }
 
 
-    @PostMapping("/{userId}/add-item")
-    public Cart addItemToCart(@PathVariable int userId, @RequestBody Produit produit) {
-        User user = userService.findById(userId);
-        return cartService.addItemToCart(user, produit.getId(), produit.getStock());
-    }
-
     @GetMapping("/{userId}")
     public Cart getCart(@PathVariable int userId) {
         User user = userService.findById(userId);

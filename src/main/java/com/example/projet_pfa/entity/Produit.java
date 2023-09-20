@@ -28,15 +28,8 @@ public class Produit {
     @OneToMany(mappedBy = "produit", fetch = FetchType.LAZY)
     private List<Avis> avisList;
 
-    @OneToMany(mappedBy = "produit")
-    @JsonIgnore
-    private List<CartItem> cartItems ;
 
-    @OneToMany(mappedBy = "produit")
-    @JsonIgnore
-    private List<OrdersItem> orderItems ;
-
-    @OneToMany(mappedBy = "produit")
+    @OneToMany(mappedBy = "produit",fetch = FetchType.LAZY)
     @JsonIgnore
     private List<Cart> cartList ;
 

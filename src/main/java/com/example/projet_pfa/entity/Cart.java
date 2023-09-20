@@ -19,12 +19,8 @@ public class Cart {
     private int id;
     private int quantity;
     private double totalprice;
-
-    @OneToMany(mappedBy = "cart",fetch = FetchType.EAGER)
-    private List<CartItem> cartItems;
     @ManyToOne
     private User user;
-
     @ManyToOne
     private Produit produit;
 }

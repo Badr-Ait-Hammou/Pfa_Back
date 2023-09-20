@@ -3,32 +3,19 @@ package com.example.projet_pfa.service;
 import com.example.projet_pfa.dao.Dao;
 import com.example.projet_pfa.entity.*;
 
-import com.example.projet_pfa.repository.OrdersItemRepository;
 import com.example.projet_pfa.repository.OrdersRepository;
-import com.example.projet_pfa.repository.ProduitRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.rest.webmvc.ResourceNotFoundException;
 import org.springframework.stereotype.Service;
 
-import java.util.Date;
+import java.math.BigDecimal;
 import java.util.List;
 
 @Service
 public class OrdersService implements Dao<Orders> {
 
-    public List<Orders> findAllOrders() {
-        return ordersRepository.findAllOrders();
-    }
-
-
-
     @Autowired
     private OrdersRepository ordersRepository;
-
-    @Autowired
-    private OrdersItemService ordersItemService;
-
 
 
     public List<Orders> findByUserId(int id) {
@@ -39,7 +26,6 @@ public class OrdersService implements Dao<Orders> {
     public Orders save(Orders orders) throws Exception  {
         return ordersRepository.save(orders);
     }
-
 
     @Override
     public List<Orders> findAll() {
@@ -56,11 +42,6 @@ public class OrdersService implements Dao<Orders> {
 
     }
 
-    public void saveOrderwithOrderItems(Orders orders){
-        orders.setDateCreated(new Date());
-            ordersRepository.save(orders);
-            ordersItemService.saveOrderItems(orders,orders.getOrderItem());
-    }
 
 
     public void deleteById(int id) {
@@ -74,5 +55,21 @@ public class OrdersService implements Dao<Orders> {
         ordersRepository.save(orders);
     }
 
+
+    public Long countDeliveredOrders() {
+        return ordersRepository.countDeliveredOrders();
+    }
+
+    public Long countPendingOrders() {
+        return ordersRepository.countPendingOrders();
+    }
+
+    public BigDecimal sumTotalPriceOfDeliveredOrders() {
+        return ordersRepository.sumTotalPriceOfDeliveredOrders();
+    }
+
+    public BigDecimal sumTotalPriceOfPendingOrders() {
+        return ordersRepository.sumTotalPriceOfPendingOrders();
+    }
 
 }

@@ -6,6 +6,7 @@ import com.example.projet_pfa.entity.User;
 import com.example.projet_pfa.entity.Ville;
 import com.example.projet_pfa.repository.AvisRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.rest.webmvc.ResourceNotFoundException;
 import org.springframework.stereotype.Service;
 
@@ -13,6 +14,7 @@ import java.util.List;
 
 @Service
 public class AvisService implements Dao<Avis> {
+
 
 
 
@@ -52,5 +54,9 @@ public class AvisService implements Dao<Avis> {
 
     public List<Avis> findByUserId(int id) {
         return avisRepository.findByUserId(id);
+    }
+
+    public List<Object[]> findAllByUserId(int userId) {
+        return avisRepository.findAllByUserId(userId);
     }
 }

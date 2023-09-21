@@ -18,6 +18,7 @@ public class Reservation {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
+    private String status;
     private String type;
 
     @Temporal(TemporalType.TIMESTAMP)

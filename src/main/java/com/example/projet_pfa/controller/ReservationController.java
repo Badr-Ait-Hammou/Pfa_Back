@@ -13,6 +13,11 @@ import java.util.List;
 @CrossOrigin
 public class ReservationController {
 
+    @PutMapping("/status/{id}")
+    public void updateSatus(@PathVariable Integer id,@RequestBody Reservation reservationInfo) {
+        reservationService.updateSatus(id, reservationInfo);
+    }
+
     @Autowired
     private ReservationService reservationService;
 

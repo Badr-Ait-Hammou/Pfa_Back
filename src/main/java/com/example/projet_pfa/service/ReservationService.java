@@ -25,13 +25,7 @@ public class ReservationService implements Dao<Reservation> {
 
     @Override
     public Reservation save(Reservation reservation)  {
-        reservation.setDateCreated(new Date());
-
-        if(reservation.getReservationDate().after(reservation.getDateCreated())){
-            return reservationRepository.save(reservation);
-        }else
-            return null;
-
+        return reservationRepository.save(reservation);
     }
 
     @Override

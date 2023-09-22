@@ -1,5 +1,6 @@
 package com.example.projet_pfa.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -17,19 +18,22 @@ public class Reservation {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-
     private String status;
     private String type;
-
     @Temporal(TemporalType.TIMESTAMP)
     private Date reservationDate;
-
-    @Temporal(TemporalType.TIMESTAMP)
     private Date dateCreated;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JsonIgnoreProperties({ "serie", "zone","specialite","produitList","reservationList"})
     private Restaurant restaurant;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JsonIgnoreProperties({ "photo"})
     private User user;
+
+    @PrePersist
+    public void prePersist() {
+        dateCreated = new Date();
+    }
 }

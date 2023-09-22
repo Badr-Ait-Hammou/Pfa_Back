@@ -48,11 +48,12 @@ public class Restaurant {
     private Specialite specialite;
 
 
-    @OneToMany(mappedBy = "restaurant", fetch = FetchType.EAGER)
+//    @OneToMany(mappedBy = "restaurant", fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "restaurant", fetch = FetchType.LAZY)
     //@JsonIgnore
     private List<Produit> produitList;
 
-    @OneToMany(mappedBy = "restaurant")
+    @OneToMany(mappedBy = "restaurant",fetch = FetchType.LAZY)
     @JsonIgnore
     private List<Reservation> reservationList;
 

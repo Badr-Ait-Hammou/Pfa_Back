@@ -55,6 +55,9 @@ public class User implements UserDetails {
     @OneToMany(mappedBy = "user",fetch = FetchType.LAZY)
     private List<Restaurant> restaurantList;
 
+//    @OneToOne(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+//    private Restaurant restaurant;
+
     @Enumerated(EnumType.STRING)
     private Role role;
 

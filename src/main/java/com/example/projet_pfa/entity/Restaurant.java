@@ -52,6 +52,10 @@ public class Restaurant {
     @JsonIgnoreProperties({"restaurantList"})
     private User user;
 
+//    @OneToOne(fetch = FetchType.LAZY)
+//    @JoinColumn(name = "user_id", unique = true)
+//    private User user;
+
 //    @OneToMany(mappedBy = "restaurant", fetch = FetchType.EAGER)
     @OneToMany(mappedBy = "restaurant", fetch = FetchType.LAZY)
     //@JsonIgnore

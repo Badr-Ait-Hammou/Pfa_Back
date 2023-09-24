@@ -1,5 +1,6 @@
 package com.example.projet_pfa.controller;
 
+import com.example.projet_pfa.entity.Role;
 import com.example.projet_pfa.entity.User;
 import com.example.projet_pfa.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,14 +14,22 @@ import java.util.Optional;
 @CrossOrigin
 public class UserController {
 
+    @GetMapping("/userrole/{role}")
+    public List<User> findUserByRole(@PathVariable Role role) {
+        return userService.findUserByRole(role);
+    }
+
+    @Autowired
+    private UserService userService;
+
 
     @GetMapping("/email/{email}")
     public Optional<User> findByEmail(@PathVariable String email) {
         return userService.findByEmail(email);
     }
 
-    @Autowired
-    private UserService userService;
+
+
 
     @PostMapping("/save")
     public void save(@RequestBody User user) {

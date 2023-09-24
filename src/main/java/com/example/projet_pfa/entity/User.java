@@ -52,6 +52,9 @@ public class User implements UserDetails {
     @JsonIgnore
     private List<Cart> cartList ;
 
+    @OneToMany(mappedBy = "user",fetch = FetchType.LAZY)
+    private List<Restaurant> restaurantList;
+
     @Enumerated(EnumType.STRING)
     private Role role;
 

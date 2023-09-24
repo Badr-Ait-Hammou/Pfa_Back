@@ -2,6 +2,7 @@ package com.example.projet_pfa.entity;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -47,6 +48,9 @@ public class Restaurant {
     @ManyToOne
     private Specialite specialite;
 
+    @ManyToOne
+    @JsonIgnoreProperties({"restaurantList"})
+    private User user;
 
 //    @OneToMany(mappedBy = "restaurant", fetch = FetchType.EAGER)
     @OneToMany(mappedBy = "restaurant", fetch = FetchType.LAZY)

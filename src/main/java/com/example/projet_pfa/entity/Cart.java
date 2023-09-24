@@ -1,6 +1,7 @@
 package com.example.projet_pfa.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -22,5 +23,6 @@ public class Cart {
     @ManyToOne
     private User user;
     @ManyToOne
+    @JsonIgnoreProperties({ "avisList"})
     private Produit produit;
 }

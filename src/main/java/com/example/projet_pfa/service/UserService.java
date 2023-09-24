@@ -1,6 +1,7 @@
 package com.example.projet_pfa.service;
 
 import com.example.projet_pfa.dao.Dao;
+import com.example.projet_pfa.entity.Role;
 import com.example.projet_pfa.entity.User;
 import com.example.projet_pfa.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,6 +18,7 @@ public class UserService implements Dao<User> {
     public Optional<User> findByEmail(String email) {
         return userRepository.findByEmail(email);
     }
+
 
     @Autowired
     private UserRepository userRepository;
@@ -51,6 +53,11 @@ public class UserService implements Dao<User> {
         user.setPostcode(userinfo.getPostcode());
         userRepository.save(user);
     }
+
+    public List<User> findUserByRole(Role role) {
+        return userRepository.findUserByRole(role);
+    }
+
 
     public void deleteUser(Integer id){
         User user = userRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("user not found with id " + id));

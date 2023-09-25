@@ -21,7 +21,7 @@ public class Avis {
     private int rating;
     private Date commentDate;
     @ManyToOne(fetch = FetchType.EAGER)
-    @JsonIgnoreProperties({ "avisList", "ordersList","reservationList","cartList"})
+    @JsonIgnoreProperties({ "avisList", "ordersList","reservationList","cartList","restaurantList"})
     private User user;
 
     @ManyToOne(fetch = FetchType.EAGER)

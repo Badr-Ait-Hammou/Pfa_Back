@@ -48,7 +48,7 @@ public class Restaurant {
     @ManyToOne
     private Specialite specialite;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
     @JsonIgnoreProperties({"restaurantList"})
     private User user;
 

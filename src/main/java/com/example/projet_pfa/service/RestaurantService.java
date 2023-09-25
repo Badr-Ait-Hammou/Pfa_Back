@@ -64,6 +64,8 @@ public class RestaurantService implements Dao<Restaurant> {
         restaurant.setZone(restaurantinfo.getZone());
         restaurant.setSpecialite(restaurantinfo.getSpecialite());
         restaurant.setUser(restaurantinfo.getUser());
+//        String apikey="AIzaSyDzmu1dHaje4yWHlQkP4cGC6lwWBRuwaUA";
+
         restaurantRepository.save(restaurant);
     }
 }
